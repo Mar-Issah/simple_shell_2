@@ -14,11 +14,11 @@
 
 #define PRINT(char) (write(STDOUT_FILENO, char, _strlen(char)))
 
-// util functions to read and execute commands
+/*-- util functions to read and execute commands ---*/
 char *read_command();
 void execute_command(char *command);
 
-// string functions prop
+/* ------String function prototype------*/
 int _strlen(char *str);
 
 #endif /* SHELL_H */
