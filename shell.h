@@ -14,6 +14,10 @@
 
 #define PRINT(char) (write(STDOUT_FILENO, char, _strlen(char)))
 
+// util functions to read and execute commands
+char *read_command();
+void execute_command(char *command);
+
 // string functions prop
 int _strlen(char *str);
 
