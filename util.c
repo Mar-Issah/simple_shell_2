@@ -37,14 +37,14 @@ void execute_command(char *command) {
         perror("fork");
         exit(EXIT_FAILURE);
     } else if (pid == 0) {
-        // Child process
+        /*-- Child process--*/
         if (execlp(command, command, NULL) == -1) {
             fprintf(stderr, "%s: command not found\n", command);
             exit
 						(EXIT_FAILURE);
         }
     } else {
-        // Parent process
+        /*-- Parent process--*/
         do {
             waitpid(pid, &status, WUNTRACED);
         } while (!WIFEXITED(status) && !WIFSIGNALED(status));
