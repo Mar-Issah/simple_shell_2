@@ -40,8 +40,7 @@ void execute_command(char *command) {
         /*-- Child process--*/
         if (execlp(command, command, NULL) == -1) {
             fprintf(stderr, "%s: command not found\n", command);
-            exit
-						(EXIT_FAILURE);
+            exit(EXIT_FAILURE);
         }
     } else {
         /*-- Parent process--*/
