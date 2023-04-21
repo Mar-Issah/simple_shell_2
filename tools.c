@@ -46,12 +46,12 @@ char *_getenv(char *path_name)
 }
 
 /**
- * _memcpy - cpies memory area
+ * _memcpy - copies memory area
  * @dest: Destination memory area
  * @src: Source memory area
  * @n: Amount of memory byte
  *
- * Return: A pointer to dest
+ * Return: A pointer to destination
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
