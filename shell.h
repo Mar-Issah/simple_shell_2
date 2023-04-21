@@ -11,6 +11,7 @@
 #include <errno.h>
 #include <signal.h>
 #include <fcntl.h>
+#include <limits.h>
 
 #define PRINT(char) (write(STDOUT_FILENO, char, _strlen(char)))
 
