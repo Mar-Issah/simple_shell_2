@@ -5,13 +5,16 @@
  * FAIL: exit
  * Return: (Success) 0 a
  */
-char *read_command() {
+char *read_command()
+{
     char *line = NULL;
     size_t bufsize = 0;
 
     PRINT("$ ");
-    if (getline(&line, &bufsize, stdin) == -1) {
-        if (feof(stdin)) {
+    if (getline(&line, &bufsize, stdin) == -1) 
+    {
+        if (line == NULL || line[0] == '\0')
+        {
             PRINT("\n");
             exit(EXIT_SUCCESS);
         } else {
@@ -27,25 +30,31 @@ char *read_command() {
  * @command: command to be executed
  * Fail: Exit
  */
-
-void execute_command(char *command) {
+void execute_command(char *command)
+{
     pid_t pid;
     int status;
 
     pid = fork();
-    if (pid == -1) {
+    if (pid == -1)
+    {
         perror("fork");
         exit(EXIT_FAILURE);
     } else if (pid == 0) {
         /*-- Child process--*/
-        if (execlp(command, command, NULL) == -1) {
+        if (execlp(command, command, NULL) == -1)
+        {
             fprintf(stderr, "%s: command not found\n", command);
             exit(EXIT_FAILURE);
         }
-    } else {
+    }
+    else
+    {
         /*-- Parent process--*/
-        do {
+        do
+        {
             waitpid(pid, &status, WUNTRACED);
-        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+        }
+        while (!WIFEXITED(status) && !WIFSIGNALED(status));
     }
 }
