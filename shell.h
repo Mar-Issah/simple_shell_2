@@ -21,4 +21,7 @@ void execute_command(char *command);
 /* ------String function prototype------*/
 int _strlen(char *str);
 
+/* ------Error output------*/
+void print_error(int fd, char *command);
+
 #endif /* SHELL_H */
