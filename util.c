@@ -18,7 +18,7 @@ char *read_command()
             PRINT("\n");
             exit(EXIT_SUCCESS);
         } else {
-            perror("read_command");
+            perror("Error");
             exit(EXIT_FAILURE);
         }
     }
