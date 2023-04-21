@@ -31,5 +31,6 @@ char *_strdup(char *str);
 void print_error(int fd, char *command);
 char *_getenv(char *path_name);
 char *_memcpy(char *dest, char *src, unsigned int n);
+char *search_command(char *command);
 
 #endif /* SHELL_H */
