@@ -26,6 +26,7 @@ void execute_command(char *command);
 int _strlen(char *str);
 char *_strcpy(char *destination, char *source);
 char *_strdup(char *str);
+int _strcmp(char *s1, char *s2);
 
 /* ------Tools------*/
 void print_error(int fd, char *command);
