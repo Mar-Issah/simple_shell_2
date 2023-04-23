@@ -14,9 +14,14 @@ int main() {
         command = strtok(line, "\n");
       
         if (command != NULL && _strlen(command) > 0) {
+              if (_strcmp(command, "exit") == 0)
+              {
+                free(line);
+                exit(EXIT_SUCCESS);
+            }
             execute_command(command);
         }
         free(line);
     }
-    return EXIT_SUCCESS;
+    return (EXIT_SUCCESS);
 }
