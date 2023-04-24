@@ -38,5 +38,6 @@ char *_memcpy(char *dest, char *src, unsigned int n);
 char *search_command(char *command);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 int _atoi(char *c);
+void cd_builtin(char **args);
 
 #endif /* SHELL_H */
