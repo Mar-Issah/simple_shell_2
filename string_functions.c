@@ -93,3 +93,79 @@ char *_strchr(char *str, char c)
 			return (ptr);
 	return (NULL);
 }
+
+
+
+/**
+ * _strchr - locates a character in a given string
+ * @str: the given string
+ * @c: the given string
+ *
+ * Return: (Success) a pointer to the first occurence of c
+ * ------- (Fail) return a null pointer
+ */
+char *_strchr(char *str, char c)
+{
+	char *ptr;
+
+	if (str == NULL)
+		return (NULL);
+	for (ptr = str; *ptr; ptr++)
+		if (*ptr == c)
+			return (ptr);
+	return (NULL);
+}
+
+
+/*
+* _strtok: function which is used to tokenize a string
+* @str: a pointer to the string to be tokenized
+* @delim: pointer to the delimiter character
+*
+* return: a pointer to the next token in the string
+*/
+
+char *_strtok(char *str, const char *delim)
+{
+    static char *last_str = NULL;
+    if (str != NULL)
+    {
+        last_str = str;
+    }
+    else
+    {
+        if (last_str == NULL)
+	{
+            return (NULL);
+        }
+        str = last_str;
+    }
+
+    char *tok;
+    while (*str && _strchr(delim, *str))
+    {
+        ++str;
+    }
+
+    if (!*str) {
+        return (NULL);
+    }
+
+    tok = str;
+
+    while (*str && !_strchr(delim, *str))
+    {
+        ++str;
+    }
+
+    if (*str)
+    {
+        *str = '\0';
+        last_str = str + 1;
+    }
+    else
+    {
+        last_str = NULL;
+    }
+    return (tok);
+}
