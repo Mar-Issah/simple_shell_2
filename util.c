@@ -62,62 +62,43 @@ char *search_command(char *command)
  * @command: command to be executed
  * Fail: Exit
  */
-void execute_command(char *command_line)
+void execute_command(char **args)
 {
     pid_t pid;
     int status;
-    char *token;
-    char **args;
-    int arg_count = 0;
     char *full_path;
 
-    args = malloc(sizeof(char *) * 64);
-    if (!args)
-    {
-        perror("malloc");
-        exit(EXIT_FAILURE);
-    }
-    
-    token = strtok(command_line, " \t");
-    while (token) {
-        args[arg_count] = token;
-        arg_count++;
-        token = strtok(NULL, " \t");
-    }
-    args[arg_count] = NULL;
-
     full_path = search_command(args[0]);
-    if (!full_path) {
-        /* fprintf(stderr, "%s: command not found\n", args[0]);*/
+    if (!full_path)
+    {
         print_error(STDERR_FILENO, args[0]);
         free(args);
         return;
     }
 
     pid = fork();
-    if (pid == -1) {
+    
+    if (pid == -1)
+    {
         perror("fork");
         exit(EXIT_FAILURE);
-    } 
-    else if (pid == 0)
+    } else if (pid == 0)
     {
         /*-- Child process--*/
         if (execve(full_path, args, environ) == -1)
         {
-            /* fprintf(stderr, "%s: command execution failed\n", args[0]);*/
             print_error(STDERR_FILENO, args[0]);
             exit(EXIT_FAILURE);
         }
-    }
-    else
+    } else
     {
         /*-- Parent process--*/
-        do {
+        do
+        {
             waitpid(pid, &status, WUNTRACED);
-        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+        } 
+        while (!WIFEXITED(status) && !WIFSIGNALED(status));
     }
 
-
-    free(args);
     free(full_path);
 }
