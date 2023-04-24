@@ -102,7 +102,7 @@ char *_strchr(char *str, char c)
 * return: a pointer to the next token in the string
 */
 
-char *_strtok(char *str, const char *delim)
+char *_strtok(char *str, char *delim)
 {
     static char *last_str = NULL;
     char *tok;
