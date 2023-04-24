@@ -40,4 +40,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 int _atoi(char *c);
 void cd_builtin(char **args);
 
+/* ------symbols------*/
+char **parse_commands(char *line);
+
 #endif /* SHELL_H */
