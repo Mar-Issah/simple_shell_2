@@ -63,3 +63,71 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 	}
 	return (dest);
 }
+
+/*
+ * my_getline - Read a line of input from a stream
+ * @lineptr: a pointer to a pointer to a buffer
+ * n@: the size of the buffer
+ * @stream: and a pointer to the input stream to read from
+ *
+ * Return: the number of characters read from the stream
+ */
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
+{
+    static char buffer[BUFFER_SIZE];
+    static int buffer_pos = 0;
+    static int buffer_len = 0;
+
+    if (lineptr == NULL || n == NULL || stream == NULL)
+    {
+        return (-1);
+    }
+
+    if (*lineptr == NULL || *n == 0)
+    {
+        *n = BUFFER_SIZE;
+        *lineptr = malloc(*n);
+        if (*lineptr == NULL)
+	{
+            return (-1);
+        }
+    }
+
+    int line_pos = 0;
+    int c;
+
+    while (1)
+    {
+        if (buffer_pos >= buffer_len)
+	{
+            buffer_len = read(fileno(stream), buffer, BUFFER_SIZE);
+            if (buffer_len <= 0)
+	    {
+                return buffer_len;
+            }
+            buffer_pos = 0;
+        }
+
+        c = buffer[buffer_pos++];
+        (*lineptr)[line_pos++] = c;
+
+        if (line_pos >= *n - 1)
+	{
+            *n += BUFFER_SIZE;
+            *lineptr = realloc(*lineptr, *n);
+            if (*lineptr == NULL)
+	    {
+                return (-1);
+            }
+        }
+
+        if (c == '\n')
+	{
+            break;
+        }
+    }
+
+    (*lineptr)[line_pos] = '\0';
+    return (line_pos);
+}
+
