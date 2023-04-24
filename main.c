@@ -38,7 +38,13 @@ int main()
                 free(args);
                 exit(exit_status);
             }
-            execute_command(args);
+             else if (_strcmp(args[0], "cd") == 0)
+             {
+                cd_builtin(args);
+            } else
+             {
+                execute_command(args);
+            }
             free(args);
         }
         free(line);
