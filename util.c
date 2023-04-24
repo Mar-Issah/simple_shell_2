@@ -11,7 +11,7 @@ char *read_command()
     size_t bufsize = 0;
 
     PRINT("$ ");
-    if (getline(&line, &bufsize, stdin) == -1) 
+    if (_getline(&line, &bufsize, stdin) == -1) 
     {
         if (line == NULL || line[0] == '\0')
         {
