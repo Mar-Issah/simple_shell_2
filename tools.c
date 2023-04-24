@@ -82,6 +82,8 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
     {
         return (-1);
     }
+	
+    int line_pos;
 
     if (*lineptr == NULL || *n == 0)
     {
@@ -93,7 +95,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
         }
     }
 
-    int line_pos = 0;
+    line_pos = 0;
     int c;
 
     while (1)
@@ -128,6 +130,6 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
     }
 
     (*lineptr)[line_pos] = '\0';
-    return (line_pos);
+    return ((ssize_t)line_pos);
 }
 
