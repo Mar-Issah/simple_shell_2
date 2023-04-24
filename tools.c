@@ -77,14 +77,13 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
     static char buffer[BUFFER_SIZE];
     static int buffer_pos = 0;
     static int buffer_len = 0;
+    int line_pos = 0;
+    int c;
 
     if (lineptr == NULL || n == NULL || stream == NULL)
     {
         return (-1);
     }
-	
-    int line_pos = 0;
-    int c;
 
     if (*lineptr == NULL || *n == 0)
     {
