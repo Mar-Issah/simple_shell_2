@@ -94,29 +94,6 @@ char *_strchr(char *str, char c)
 	return (NULL);
 }
 
-
-
-/**
- * _strchr - locates a character in a given string
- * @str: the given string
- * @c: the given string
- *
- * Return: (Success) a pointer to the first occurence of c
- * ------- (Fail) return a null pointer
- */
-char *_strchr(char *str, char c)
-{
-	char *ptr;
-
-	if (str == NULL)
-		return (NULL);
-	for (ptr = str; *ptr; ptr++)
-		if (*ptr == c)
-			return (ptr);
-	return (NULL);
-}
-
-
 /*
 * _strtok: function which is used to tokenize a string
 * @str: a pointer to the string to be tokenized
