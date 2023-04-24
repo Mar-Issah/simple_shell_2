@@ -14,6 +14,7 @@
 #include <limits.h>
 
 #define PRINT(char) (write(STDOUT_FILENO, char, _strlen(char)))
+#define BUFFER_SIZE 1024
 
 /* Global variable */
 extern char **environ;
@@ -33,5 +34,6 @@ void print_error(int fd, char *command);
 char *_getenv(char *path_name);
 char *_memcpy(char *dest, char *src, unsigned int n);
 char *search_command(char *command);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 #endif /* SHELL_H */
