@@ -21,7 +21,7 @@ extern char **environ;
 
 /*-- util functions to read and execute commands ---*/
 char *read_command();
-void execute_command(char *command);
+void execute_command(char **command);
 
 /* ------String function prototype------*/
 int _strlen(char *str);
