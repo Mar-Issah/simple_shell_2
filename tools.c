@@ -110,7 +110,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
         c = buffer[buffer_pos++];
         (*lineptr)[line_pos++] = c;
 
-        if (line_pos >= *n - 1)
+        if (line_pos >= (int)(*n - 1))
 	{
             *n += BUFFER_SIZE;
             *lineptr = realloc(*lineptr, *n);
