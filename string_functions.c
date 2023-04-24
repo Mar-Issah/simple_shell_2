@@ -105,6 +105,8 @@ char *_strchr(char *str, char c)
 char *_strtok(char *str, const char *delim)
 {
     static char *last_str = NULL;
+    char *tok;
+	
     if (str != NULL)
     {
         last_str = str;
@@ -118,7 +120,6 @@ char *_strtok(char *str, const char *delim)
         str = last_str;
     }
 
-    char *tok;
     while (*str && _strchr(delim, *str))
     {
         ++str;
