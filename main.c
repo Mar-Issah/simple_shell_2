@@ -16,9 +16,9 @@ int main()
 
     while (1)
     {
+        int i = 0;
         line = read_command();
         commands = parse_commands(line);
-        int i = 0;
         
         while (commands[i]) {
             command = _strtok(commands[i], "\n");
