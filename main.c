@@ -9,9 +9,8 @@ char *line;
 char *command;
 char **args;
 int arg_count = 0;
-/* int exit_status = 0; */
 char **commands;
-  
+
 int interactive = isatty(STDIN_FILENO);
 
 while (1)
