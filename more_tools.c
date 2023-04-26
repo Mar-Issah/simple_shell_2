@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
 * cd_builtin - function that implement 'cd'
-* @args - an array of strings containing the command and argument(s)
+* @args: an array of strings containing the command and argument(s)
 *
 * Return value: none
 */
