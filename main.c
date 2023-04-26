@@ -27,7 +27,7 @@ args = malloc(sizeof(char *) * 64);
 arg_count = 0;
 args[arg_count++] = _strtok(command, " \t");
 
-split_code(args, arg_coun, exit_status);
+split_code(args, arg_coun, exit_status,commands);
 // while ((args[arg_count++] = _strtok(NULL, " \t")))
 // {
 // }
@@ -65,7 +65,7 @@ return (EXIT_SUCCESS);
 
 
 
-void split_code(char **args, int arg_coun, int exit_status)
+void split_code(char **args, int arg_count, int exit_status,char **commands)
 {
 while ((args[arg_count++] = _strtok(NULL, " \t")))
 {
