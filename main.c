@@ -1,8 +1,6 @@
 #include "shell.h"
-
 /**
 * main - the main function/ entry point
-*
 * Return: (Success) 0
 */
 int main(void)
@@ -19,7 +17,6 @@ while (1)
 int i = 0;
 line = read_command();
 commands = parse_commands(line);
-
 while (commands[i])
 {
 command = _strtok(commands[i], "\n");
