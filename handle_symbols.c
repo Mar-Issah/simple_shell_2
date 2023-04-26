@@ -1,10 +1,10 @@
 #include "shell.h"
 /*
-* parse_commands: function takes in a string line that contains
+* parse_commands - function takes in a string line that contains
 * multiple commands separated by ';'
-*@line: string line
+* @line: string line
 * The array is terminated by a NULL pointer.
-* return: the array of strings containing each individual command
+* Return: the array of strings containing each individual command
 */
 char **parse_commands(char *line)
 {
@@ -27,7 +27,7 @@ position++;
 if (position >= bufsize)
 {
 bufsize += 64;
-tokens = realloc(tokens, bufsize * sizeof(char *));
+tokens = realloc(tokens, bufsize *sizeof(char *));
 if (!tokens)
 {
 perror("realloc");
