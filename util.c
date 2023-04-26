@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
 * read_command - prompt function to display the prompt and read input:
 * FAIL: exit
@@ -24,7 +23,7 @@ perror("Error");
 exit(EXIT_FAILURE);
 }
 }
-return line;
+return (line);
 }
 
 
@@ -40,8 +39,9 @@ char *path_env_copy = _strdup(path_env);
 char *path = strtok(path_env_copy, ":");
 char *full_path = malloc(PATH_MAX);
 int path_len, command_len;
-        
-while (path) {
+
+while (path)
+{
 path_len = _strlen(path);
 _memcpy(full_path, path, path_len);
 full_path[path_len] = '/';
@@ -58,7 +58,7 @@ path = strtok(NULL, ":");
 }
 free(path_env_copy);
 free(full_path);
-    
+
 return (NULL);
 }
 
@@ -84,7 +84,6 @@ else
 {
 path_allocated = 1;
 }
-
 pid = fork();
 
 if (pid == -1)
@@ -102,13 +101,11 @@ exit(EXIT_FAILURE);
 }
 else
 {
-do
-{
+do {
 waitpid(pid, &status, WUNTRACED);
 }
 while (!WIFEXITED(status) && !WIFSIGNALED(status));
 }
-
 if (path_allocated)
 {
 free(full_path);
