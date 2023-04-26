@@ -1,10 +1,9 @@
 #include "shell.h"
-
 /**
-* Writes an error message to the specified file descriptor indicating that the given command was not found.
+* print_error - Writes an error message
 *
-* @param fd the file descriptor to write the error message to
-* @param command the name of the command that was not found
+* @fd: the file descriptor to write the error message to
+* @command: the name of the command that was not found
 */
 
 void print_error(int fd, char *command)
@@ -75,8 +74,8 @@ return (dest);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 {
 static char buffer[BUFFER_SIZE];
-static int buffer_pos = 0;
-static int buffer_len = 0;
+static int buffer_pos;
+static int buffer_len;
 int line_pos = 0;
 int c;
 
@@ -84,7 +83,6 @@ if (lineptr == NULL || n == NULL || stream == NULL)
 {
 return (-1);
 }
-
 if (*lineptr == NULL || *n == 0)
 {
 *n = BUFFER_SIZE;
@@ -94,7 +92,6 @@ if (*lineptr == NULL)
 return (-1);
 }
 }
-
 while (1)
 {
 if (buffer_pos >= buffer_len)
@@ -106,10 +103,8 @@ return buffer_len;
 }
 buffer_pos = 0;
 }
-
 c = buffer[buffer_pos++];
 (*lineptr)[line_pos++] = c;
-
 if (line_pos >= (int)(*n - 1))
 {
 *n += BUFFER_SIZE;
@@ -119,13 +114,11 @@ if (*lineptr == NULL)
 return (-1);
 }
 }
-
 if (c == '\n')
 {
 break;
 }
 }
-
 (*lineptr)[line_pos] = '\0';
 return ((ssize_t)line_pos);
 }
@@ -151,5 +144,5 @@ else
 val = (val * 10) + (*c - '0');
 c++;
 }
-return (sign * val);
+return (sign *val);
 }
