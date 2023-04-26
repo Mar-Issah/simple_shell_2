@@ -24,6 +24,7 @@ exit(EXIT_FAILURE);
 }
 }
 return (line);
+free(line);
 }
 
 
