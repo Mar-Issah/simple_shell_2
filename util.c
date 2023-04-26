@@ -25,6 +25,12 @@ exit(EXIT_FAILURE);
 return line;
 }
 
+
+/**
+* search_command -  function to search for command input
+* @command: command
+* Return: char
+*/
 char *search_command(char *command)
 {
 char *path_env = _getenv("PATH");
