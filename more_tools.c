@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
 * cd_builtin - function that implement 'cd'
-* args - an array of strings containing the command and argument(s)
+* @args - an array of strings containing the command and argument(s)
 *
 * Return value: none
 */
@@ -25,7 +25,7 @@ PRINT(new_directory);
 else
 {
 new_directory = args[1];
-}	
+}
 old_directory = getcwd(current_directory, sizeof(current_directory));
 if (old_directory == NULL)
 {
