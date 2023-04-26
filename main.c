@@ -11,11 +11,18 @@ char **args;
 int arg_count = 0;
 /* int exit_status = 0; */
 char **commands;
+  
+int interactive = isatty(STDIN_FILENO);
 
 while (1)
 {
 int i = 0;
 line = read_command();
+
+if (!interactive && (line == NULL || line[0] == '\0'))
+{
+break;
+}
 commands = parse_commands(line);
 while (commands[i])
 {
