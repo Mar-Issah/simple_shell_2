@@ -2,6 +2,7 @@
 /*
 * parse_commands: function takes in a string line that contains
 * multiple commands separated by ';'
+*@line: string line
 * The array is terminated by a NULL pointer.
 * return: the array of strings containing each individual command
 */
