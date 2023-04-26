@@ -63,7 +63,7 @@ dest[i] = src[i];
 return (dest);
 }
 
-/*
+/**
 * my_getline - Read a line of input from a stream
 * @lineptr: a pointer to a pointer to a buffer
 * n@: the size of the buffer
@@ -98,9 +98,7 @@ if (buffer_pos >= buffer_len)
 {
 buffer_len = read(fileno(stream), buffer, BUFFER_SIZE);
 if (buffer_len <= 0)
-{
-return buffer_len;
-}
+return (buffer_len);
 buffer_pos = 0;
 }
 c = buffer[buffer_pos++];
@@ -110,9 +108,7 @@ if (line_pos >= (int)(*n - 1))
 *n += BUFFER_SIZE;
 *lineptr = realloc(*lineptr, *n);
 if (*lineptr == NULL)
-{
 return (-1);
-}
 }
 if (c == '\n')
 {
