@@ -9,7 +9,7 @@
 
 char *_strtok(char *str, char *delim)
 {
-static char *last_str = '';
+static char *last_str;
 char *tok;
 
 if (str != NULL)
