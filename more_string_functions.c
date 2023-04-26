@@ -1,5 +1,5 @@
 #include "shell.h"
-/*
+/**
 * _strtok: function which is used to tokenize a string
 * @str: a pointer to the string to be tokenized
 * @delim: pointer to the delimiter character
@@ -11,7 +11,7 @@ char *_strtok(char *str, char *delim)
 {
 static char *last_str = NULL;
 char *tok;
-	
+
 if (str != NULL)
 {
 last_str = str;
@@ -24,23 +24,20 @@ return (NULL);
 }
 str = last_str;
 }
-
 while (*str && _strchr(delim, *str))
 {
 ++str;
 }
-
-if (!*str) {
+if (!*str)
+{
 return (NULL);
 }
-
 tok = str;
 
 while (*str && !_strchr(delim, *str))
 {
 ++str;
 }
-
 if (*str)
 {
 *str = '\0';
