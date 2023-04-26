@@ -11,13 +11,15 @@ char *line = NULL;
 size_t bufsize = 0;
 
 PRINT("$ ");
-if (_getline(&line, &bufsize, stdin) == -1) 
+if (_getline(&line, &bufsize, stdin) == -1)
 {
 if (line == NULL || line[0] == '\0')
 {
 PRINT("\n");
 exit(EXIT_SUCCESS);
-} else {
+}
+else
+{
 perror("Error");
 exit(EXIT_FAILURE);
 }
@@ -38,8 +40,7 @@ char *path_env_copy = _strdup(path_env);
 char *path = strtok(path_env_copy, ":");
 char *full_path = malloc(PATH_MAX);
 int path_len, command_len;
-
-
+        
 while (path) {
 path_len = _strlen(path);
 _memcpy(full_path, path, path_len);
@@ -47,8 +48,7 @@ full_path[path_len] = '/';
 command_len = _strlen(command);
 _memcpy(full_path + path_len + 1, command, command_len);
 full_path[path_len + 1 + command_len] = '\0';
-        
-        
+
 if (access(full_path, X_OK) == 0)
 {
 free(path_env_copy);
