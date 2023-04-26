@@ -28,28 +28,6 @@ arg_count = 0;
 args[arg_count++] = _strtok(command, " \t");
 
 split_code(args, arg_count, exit_status,commands, line);
-// while ((args[arg_count++] = _strtok(NULL, " \t")))
-// {
-// }
-// if (_strcmp(args[0], "exit") == 0)
-// {
-// if (args[1] != NULL)
-// {
-// exit_status = _atoi(args[1]);
-// }
-// free(line);
-// free(args);
-// free(commands);
-// exit(exit_status);
-// }
-// else if (_strcmp(args[0], "cd") == 0)
-// {
-// cd_builtin(args);
-// }
-// else
-// {
-// execute_command(args);
-// }
 free(args);
 }
 i++;
@@ -61,10 +39,15 @@ return (EXIT_SUCCESS);
 }
 
 
-
-
-
-
+/**
+* split_code - function to split code
+* @args: arguments
+* @arg_count: argument count
+* @exit_status: exit status
+* @commands: commands
+* @line: line
+* Return: void
+*/
 void split_code(char **args, int arg_count, int exit_status,char **commands, char *line)
 {
 while ((args[arg_count++] = _strtok(NULL, " \t")))
