@@ -60,6 +60,10 @@ if (args[1] != NULL)
 {
 exit_status = _atoi(args[1]);
 }
+for (int j = 0; args[j]; j++)
+  free(args[j]);
+for (int j = 0; commands[j]; j++)
+  free(commands[j]);
 free(line);
 free(args);
 free(commands);
