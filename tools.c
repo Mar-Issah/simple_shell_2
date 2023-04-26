@@ -64,10 +64,10 @@ return (dest);
 }
 
 /**
-* my_getline - Read a line of input from a stream
+* _getline - Read a line of input from a stream
 * @lineptr: a pointer to a pointer to a buffer
-* n@: the size of the buffer
-* @stream: and a pointer to the input stream to read from
+* n@: pointer to the size of the buffer
+* @stream: a pointer to the input stream to read from
 *
 * Return: the number of characters read from the stream
 */
@@ -80,17 +80,13 @@ int line_pos = 0;
 int c;
 
 if (lineptr == NULL || n == NULL || stream == NULL)
-{
 return (-1);
-}
 if (*lineptr == NULL || *n == 0)
 {
 *n = BUFFER_SIZE;
 *lineptr = malloc(*n);
 if (*lineptr == NULL)
-{
 return (-1);
-}
 }
 while (1)
 {
