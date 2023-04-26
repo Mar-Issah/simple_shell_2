@@ -23,7 +23,7 @@ extern char **environ;
 char *read_command();
 void execute_command(char **command);
 
-void split_code(char **args, int arg_count,char **commands, char *line);
+void split_code(char **args, int arg_count, char **commands, char *line);
 
 /* ------String function prototype------*/
 int _strlen(char *str);
