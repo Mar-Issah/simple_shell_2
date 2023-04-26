@@ -46,6 +46,6 @@ void cd_builtin(char **args);
 char **parse_commands(char *line);
 
 /* handle signal */
-void handle_sigint(int sig);
+void handle_sigint();
 
 #endif /* SHELL_H */
