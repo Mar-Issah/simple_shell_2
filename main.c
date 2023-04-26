@@ -5,13 +5,13 @@
 */
 int main(void)
 {
-signal(SIGINT, handle_sigint);
-
 char *line;
 char *command;
 char **args;
 int arg_count = 0;
 char **commands;
+
+signal(SIGINT, handle_sigint);
 
 int interactive = isatty(STDIN_FILENO);
 
@@ -89,7 +89,7 @@ execute_command(args);
 * @sig: signal
 * Return: void
 */
-void handle_sigint(int sig)
+void handle_sigint()
 {
 /* Do nothing*/
 }
