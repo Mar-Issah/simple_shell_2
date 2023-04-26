@@ -29,6 +29,7 @@ if (command != NULL && _strlen(command) > 0)
 args = malloc(sizeof(char *) * 64);
 arg_count = 0;
 args[arg_count++] = _strtok(command, " \t");
+
 while ((args[arg_count++] = _strtok(NULL, " \t")));
 if (_strcmp(args[0], "exit") == 0) 
 {
