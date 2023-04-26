@@ -66,7 +66,7 @@ return (dest);
 /**
 * _getline - Read a line of input from a stream
 * @lineptr: a pointer to a pointer to a buffer
-* n@: pointer to the size of the buffer
+* @n: pointer to the size of the buffer
 * @stream: a pointer to the input stream to read from
 *
 * Return: the number of characters read from the stream
