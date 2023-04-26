@@ -6,7 +6,7 @@
 int main(void)
 {
 signal(SIGINT, handle_sigint);
-  
+ 
 char *line;
 char *command;
 char **args;
