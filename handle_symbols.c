@@ -1,5 +1,5 @@
 #include "shell.h"
-/*
+/**
 * parse_commands - function takes in a string line that contains
 * multiple commands separated by ';'
 * @line: string line
