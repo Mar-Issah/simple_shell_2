@@ -23,6 +23,8 @@ extern char **environ;
 char *read_command();
 void execute_command(char **command);
 
+void split_code(char **args, int arg_coun, int exit_status);
+
 /* ------String function prototype------*/
 int _strlen(char *str);
 char *_strcpy(char *destination, char *source);
