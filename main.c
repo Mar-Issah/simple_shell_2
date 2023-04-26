@@ -10,10 +10,9 @@ char *command;
 char **args;
 int arg_count = 0;
 char **commands;
+int interactive = isatty(STDIN_FILENO);
 
 signal(SIGINT, handle_sigint);
-
-int interactive = isatty(STDIN_FILENO);
 
 while (1)
 {
