@@ -9,46 +9,46 @@
 
 char *_strtok(char *str, char *delim)
 {
-    static char *last_str = NULL;
-    char *tok;
+static char *last_str = NULL;
+char *tok;
 	
-    if (str != NULL)
-    {
-        last_str = str;
-    }
-    else
-    {
-        if (last_str == NULL)
-	{
-            return (NULL);
-        }
-        str = last_str;
-    }
+if (str != NULL)
+{
+last_str = str;
+}
+else
+{
+if (last_str == NULL)
+{
+return (NULL);
+}
+str = last_str;
+}
 
-    while (*str && _strchr(delim, *str))
-    {
-        ++str;
-    }
+while (*str && _strchr(delim, *str))
+{
+++str;
+}
 
-    if (!*str) {
-        return (NULL);
-    }
+if (!*str) {
+return (NULL);
+}
 
-    tok = str;
+tok = str;
 
-    while (*str && !_strchr(delim, *str))
-    {
-        ++str;
-    }
+while (*str && !_strchr(delim, *str))
+{
+++str;
+}
 
-    if (*str)
-    {
-        *str = '\0';
-        last_str = str + 1;
-    }
-    else
-    {
-        last_str = NULL;
-    }
-    return (tok);
+if (*str)
+{
+*str = '\0';
+last_str = str + 1;
+}
+else
+{
+last_str = NULL;
+}
+return (tok);
 }
