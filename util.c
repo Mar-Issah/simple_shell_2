@@ -52,7 +52,7 @@ full_path[path_len + 1 + command_len] = '\0';
 if (access(full_path, X_OK) == 0)
 {
 free(path_env_copy);
-return full_path;
+return (full_path);
 }
 path = strtok(NULL, ":");
 }
@@ -64,8 +64,8 @@ return (NULL);
 
 
 /**
-* execute_command - function to execute the command
-* @command: command to be executed
+* execute_command - function to execute the input
+* @args: input to be executed
 * Fail: Exit
 */
 void execute_command(char **args)
