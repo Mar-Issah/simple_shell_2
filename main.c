@@ -5,6 +5,8 @@
 */
 int main(void)
 {
+signal(SIGINT, handle_sigint);
+  
 char *line;
 char *command;
 char **args;
@@ -79,4 +81,15 @@ else
 {
 execute_command(args);
 }
+}
+
+
+/**
+* handle_sigint - function to handle signal
+* @sig: signal
+* Return: void
+*/
+void handle_sigint(int sig)
+{
+/* Do nothing*/
 }
