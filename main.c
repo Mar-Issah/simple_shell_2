@@ -50,7 +50,6 @@ return (EXIT_SUCCESS);
 void split_code(char **args, int arg_count, char **commands, char *line)
 {
 int exit_status = 0;
-int j = 0;
 
 while ((args[arg_count++] = _strtok(NULL, " \t")))
 {
@@ -60,23 +59,6 @@ if (_strcmp(args[0], "exit") == 0)
 if (args[1] != NULL)
 {
 exit_status = _atoi(args[1]);
-}
-if (args)
-{
-while (args[j])
-{
-free(args[j]);
-j++;
-}
-}
-j = 0;
-if (commands)
-{
-while (commands[j])
-{
-free(commands[j]);
-j++;
-}
 }
 free(line);
 free(args);
