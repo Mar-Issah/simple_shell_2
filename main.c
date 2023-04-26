@@ -43,7 +43,6 @@ return (EXIT_SUCCESS);
 * split_code - function to split code
 * @args: arguments
 * @arg_count: argument count
-* @exit_status: exit status
 * @commands: commands
 * @line: line
 * Return: void
