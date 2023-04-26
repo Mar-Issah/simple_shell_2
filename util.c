@@ -103,8 +103,7 @@ else
 {
 do {
 waitpid(pid, &status, WUNTRACED);
-}
-while (!WIFEXITED(status) && !WIFSIGNALED(status));
+} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 }
 if (path_allocated)
 {
