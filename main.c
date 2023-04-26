@@ -60,10 +60,24 @@ if (args[1] != NULL)
 {
 exit_status = _atoi(args[1]);
 }
-for (int j = 0; args[j]; j++)
-  free(args[j]);
-for (int j = 0; commands[j]; j++)
-  free(commands[j]);
+int j = 0;
+if (args)
+{
+while (args[j])
+{
+free(args[j]);
+j++;
+}
+}
+j = 0;
+if (commands)
+{
+while (commands[j])
+{
+free(commands[j]);
+j++;
+}
+}
 free(line);
 free(args);
 free(commands);
