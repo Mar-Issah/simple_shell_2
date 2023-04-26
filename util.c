@@ -67,38 +67,45 @@ void execute_command(char **args)
     pid_t pid;
     int status;
     char *full_path;
+    int path_allocated = 0;
 
     full_path = search_command(args[0]);
     if (!full_path)
     {
-        print_error(STDERR_FILENO, args[0]);
-        free(args);
-        return;
+        full_path = args[0];
+    }
+    else
+    {
+        path_allocated = 1;
     }
 
     pid = fork();
-    
+
     if (pid == -1)
     {
         perror("fork");
         exit(EXIT_FAILURE);
-    } else if (pid == 0)
+    }
+    else if (pid == 0)
     {
-        /*-- Child process--*/
         if (execve(full_path, args, environ) == -1)
         {
             print_error(STDERR_FILENO, args[0]);
             exit(EXIT_FAILURE);
         }
-    } else
+    }
+    else
     {
-        /*-- Parent process--*/
         do
         {
             waitpid(pid, &status, WUNTRACED);
-        } 
+        }
         while (!WIFEXITED(status) && !WIFSIGNALED(status));
     }
 
-    free(full_path);
+    if (path_allocated)
+    {
+        free(full_path);
+    }
 }
+
