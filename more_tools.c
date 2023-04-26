@@ -11,13 +11,13 @@ char *new_directory;
 char *old_directory;
 char *home_directory;
 char current_directory[BUFFER_SIZE];
-
 if (args[1] == NULL || _strcmp(args[1], "~") == 0
 || _strcmp(args[1], "$HOME") == 0)
 {
 home_directory = _getenv("HOME");
 new_directory = home_directory;
-} else if (_strcmp(args[1], "-") == 0)
+}
+else if (_strcmp(args[1], "-") == 0)
 {
 new_directory = _getenv("OLDPWD");
 PRINT(new_directory);
@@ -42,7 +42,6 @@ if (setenv("PWD", new_directory, 1) == -1)
 perror("setenv");
 return;
 }
-
 if (setenv("OLDPWD", old_directory, 1) == -1)
 {
 perror("setenv");
