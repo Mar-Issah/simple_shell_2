@@ -27,7 +27,7 @@ args = malloc(sizeof(char *) * 64);
 arg_count = 0;
 args[arg_count++] = _strtok(command, " \t");
 
-split_code(args, arg_count,commands, line);
+split_code(args, arg_count, commands, line);
 free(args);
 }
 i++;
@@ -48,7 +48,7 @@ return (EXIT_SUCCESS);
 * @line: line
 * Return: void
 */
-void split_code(char **args, int arg_count,char **commands, char *line)
+void split_code(char **args, int arg_count, char **commands, char *line)
 {
 int exit_status = 0;
 
