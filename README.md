@@ -5,7 +5,7 @@
 - Who is Ken Thompson?.
 - How does a shell work.
 - What is a pid and a ppid.
-- How to manipulate the environment of the current process
+- How to manipulate the environment of the current process.
 - What is the difference between a function and a system call
 - How to create processes
 - What are the three prototypes of main
